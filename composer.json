@@ -1,0 +1,28 @@
+{
+    "name": "administrator/dandelion-frame",
+    "description": "This framework is open source and free of charge",
+    "type": "project",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "DandelionShare",
+            "email": "192507904@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+      "files":[
+        "system/helper.php"
+      ],
+        "psr-4":{
+       "dandelion\\":"dandelion",
+          "app\\":"app"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
