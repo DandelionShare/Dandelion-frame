@@ -12,6 +12,6 @@ namespace app\admin\controller;
 class IndexController
 {
 	public function index(){
-		dd (5);
+		//dd (5);
 	}
 }

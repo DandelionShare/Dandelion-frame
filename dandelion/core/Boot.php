@@ -64,12 +64,16 @@ class Boot
 				$a = $arr[2];
 			}else{
 				//默认访问页面
-				$m = 'admin';
+				$m = 'home';
 				$c = 'index';
 				$a = 'index';
 			}
+			//将上面控制访问文件的参数定义成全局的常量
+			define ('MODULE',$m);
+			define ('CONTROLLER',$c);
+			define ('ACTION',$a);
 		$controller = 'app\\'.$m.'\controller\\'.ucfirst ($c).'Controller';
 		//实例化调用
-			call_user_func_array ([new $controller,$a],[]);
+			echo call_user_func_array ([new $controller,$a],[]);
 	}
 }

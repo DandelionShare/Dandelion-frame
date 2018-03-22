@@ -19,16 +19,15 @@
 <body style="background: #EEEEEE;">
 <div class="jumbotron">
 	<p style="text-align: right;margin-right: 20px">
-		<a href="javascript:;" class="btn btn-success btn-lg" style="color: yellow;" >Sign in</a>
-		<a href="javascript:;" class="btn btn-success btn-lg" style="color: yellow;" >enroll</a>
+		<a href="../app/home/view/index/signin.php" class="btn btn-success btn-lg" style="color: yellow;" >Achieve your dream</a>
 	</p>
 
 	<div class="container" style="text-align: center;margin-top: 70px">
 		<h1>Welcome to Dandelion Share</h1>
 		<p style="margin: 10px;">You are a man with a dream</p>
-		<img src="./logo/welcome.jpg" style="margin: 10px" alt="..." class="img-circle">
+		<img src="../app/home/view/index/logo/welcome.jpg" style="margin: 10px" alt="..." class="img-circle">
 		<p style="margin: 10px">
-			<a href="auther.php" class="btn btn-primary btn-lg" style="color: lightgreen" >About the author</a>
+			<a href="../app/home/view/index/auther.php" class="btn btn-primary btn-lg" style="color: lightgreen" >About the author</a>
 		</p>
 	</div>
 </div>

@@ -12,6 +12,6 @@ namespace app\admin\controller;
 class ArticleController
 {
 	public function index(){
-		dd (202);
+		//dd (202);
 	}
 }
