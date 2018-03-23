@@ -18,9 +18,9 @@ class Base{
 			//dd (ACTION);die();//index
 			//当没有穿传参数默认走else分支
 			if ($path){
-				$this->files = '../app/'.MODULE.'/view/'.CONTROLLER.'/'.$path.'.php';
+				$this->files = '../app/'.MODULE.'/view/'.CONTROLLER.'/'.$path.c ("suffix.suffix");
 			}else{
-				$this->files = '../app/'.MODULE.'/view/'.CONTROLLER.'/'.ACTION.'.php';
+				$this->files = '../app/'.MODULE.'/view/'.CONTROLLER.'/'.ACTION.c ("suffix.suffix");
 			}
 
 			return $this;

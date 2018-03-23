@@ -38,8 +38,8 @@ class Boot
 		//dd (1);
 		//设置头部
 		header ( 'content-type:text/html;charset=utf8' );
-		//设置时区
-		date_default_timezone_set ( 'PRC' );
+		//设置时区,已在配置项中配置可以通过改配置项来实现时区的设置
+		date_default_timezone_set ( c ("time.time") );
 		//开启session
 		session_id () || session_start ();
 	}

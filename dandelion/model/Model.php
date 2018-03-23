@@ -22,6 +22,7 @@ class Model
 		return self::runParse ($name,$arguments);
 	}
 	private static function runParse($name,$arguments){
-		return call_user_func_array ([new Base(),$name],$arguments);
+		//dd (get_called_class ());die;
+		return call_user_func_array ([new Base(get_called_class ()),$name],$arguments);
 	}
 }

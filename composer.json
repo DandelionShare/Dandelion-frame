@@ -16,7 +16,8 @@
       ],
         "psr-4":{
        "dandelion\\":"dandelion",
-          "app\\":"app"
+          "app\\":"app",
+          "system\\":"system"
         }
     },
     "repositories": {
