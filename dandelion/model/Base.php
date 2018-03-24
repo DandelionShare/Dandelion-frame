@@ -14,9 +14,10 @@ class Base
 {
 	private static $pdo=null;
 	private $table;
-	private $where;
+	private $where=null;
 	private $order;
 	private $limit;
+	private $field=' * ';
 public function __construct ($systemmodel)
 {
 	//调用
@@ -62,16 +63,76 @@ public function where($where=null){
 	$this->where = is_null ($where)?'':' where '.$where;
 	return $this;
 }
-
 	/**
-	 * 查找一张数据表中的信息
+	 * 获取指定列数据
 	 */
-	public function get($field='*'){
-		//echo 111;//打印成功
-		$sql = "select ".$field." from ".$this->table.$this->where.$this->group.$this->having.$this->order.$this->limit;
-		return self::query ($sql);
+	public function field($field){
+		$this->field = $field;
+		return $this;
+	}
+	/**
+	 * 根据条件查找一条数据
+	 */
+	public function first(){
+		$sql = "select {$this->field} from {$this->table}{$this->where}{$this->order}{$this->limit}" ;
+		return current ($this->query ( $sql ));
 	}
 
+	/**
+	 * 写入数据
+	 */
+	public function insert($data){
+		$fields = '';$values = '';
+		foreach($data as $k=>$v){
+			$fields .= $k .',';
+			$values .= is_int ($v) ? $v.',' : "'$v'".',';
+		}
+		$fields = rtrim ($fields,',');
+		$values = rtrim ($values,',');
+		$sql = "insert into {$this->table} ({$fields}) values ({$values})";
+		return $this->exec ($sql);
+	}
+
+	/**
+	 * 数据更新
+	 * @param $data		更新数据
+	 *
+	 * @return bool|int
+	 * @throws Exception
+	 */
+	public function update($data){
+		if(is_null ($this->where)){
+			return false;
+		}
+		$fields = '';
+		foreach($data as $k=>$v){
+			$fields .= $k . '=' . (is_int ($v)?$v:"'$v'") . ',';
+		}
+		$fields = rtrim ($fields,',');
+		$sql = "update {$this->table} set {$fields}{$this->where}";
+		return $this->exec ($sql);
+	}
+
+	/**
+	 * 数据删除
+	 * @return bool|int
+	 * @throws Exception
+	 */
+	public function delete(){
+		if(is_null ($this->where)){
+			return false;
+		}
+		$sql = "delete from {$this->table}{$this->where}";
+		return $this->exec ($sql);
+	}
+	/**
+	 * 获取所有数据
+	 */
+	public function get ()
+	{
+		$sql = "select {$this->field} from {$this->table}{$this->where}{$this->order}{$this->limit}" ;
+		return $this->query ( $sql );
+	}
 
 
 

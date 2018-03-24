@@ -38,8 +38,8 @@ class IndexController extends Controller
 		//dd ($res);
 		//6.数据库的底层封装
 		//$res = Student::where('sex = "女"')->group('sex')->order('id desc')->limit('2')->get('id,stu_name,sex');
-		$res = Student::group('sex')->having('sex = "男"')->get();
-		//$res = Student::find('3');
+		//$res = Student::group('sex')->having('sex = "男"')->get();
+		$res = Student::find('3');
 		dd ($res);
 	}
 	public function add(){

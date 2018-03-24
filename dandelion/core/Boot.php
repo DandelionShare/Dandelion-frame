@@ -18,6 +18,8 @@ class Boot
 {
 	public static function run ()
 	{
+		//错误提示
+		self::mistake ();
 		//测试是否运行到此处
 		//echo 111;
 		//测试是否加载到助手函数库
@@ -76,4 +78,15 @@ class Boot
 		//实例化调用
 			echo call_user_func_array ([new $controller,$a],[]);
 	}
+
+	/**
+	 * 错误提示whoops
+	 */
+	public static function mistake(){
+		$whoops = new \Whoops\Run;
+		$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+		$whoops->register();
+	}
+
+
 }
