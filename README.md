@@ -5,6 +5,8 @@ The first frame of your own, spread like a dandelion
 ##auther 
 ###DandelionShare
 
+##试一试是否自动更新
+
 
 
 
